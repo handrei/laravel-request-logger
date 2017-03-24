@@ -2,7 +2,7 @@
 
 namespace Prettus\RequestLogger\Jobs;
 
-use App\Jobs\Job;
+use Job;
 use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -32,8 +32,8 @@ class LogTask extends Job implements ShouldQueue
      * @return void
      */
     public function handle()
-    {        
+    {
         $requestLogger = app(\Prettus\RequestLogger\ResponseLogger::class);
-        $requestLogger->log($this->request, $this->response);        
+        $requestLogger->log($this->request, $this->response);
     }
 }
