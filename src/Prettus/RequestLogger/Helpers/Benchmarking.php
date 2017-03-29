@@ -16,12 +16,12 @@ class Benchmarking
      * @param $name
      * @return mixed
      */
-    public static function start($name)
+    public static function start($name, $startTime = null)
     {
-        $start = microtime(true);
+        $start = $startTime ?? microtime(true);
 
         static::$timers[$name] = [
-            'start'=>$start
+            'start' => $start
         ];
 
         return $start;
@@ -32,14 +32,14 @@ class Benchmarking
      * @return float
      * @throws \Exception
      */
-    public static function end($name)
+    public static function end($name, $endTime = null)
     {
 
-        $end = microtime(true);
+        $end = $endTime ?? microtime(true);
 
-        if( isset(static::$timers[$name]) && isset(static::$timers[$name]['start']) ) {
+        if (isset(static::$timers[$name]) && isset(static::$timers[$name]['start'])) {
 
-            if( isset(static::$timers[$name]['duration']) ){
+            if (isset(static::$timers[$name]['duration'])) {
                 return static::$timers[$name]['duration'];
             }
 

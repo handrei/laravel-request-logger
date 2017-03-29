@@ -2,7 +2,6 @@
 
 namespace Prettus\RequestLogger\Jobs;
 
-use Job;
 use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Contracts\Queue\ShouldQueue;
 

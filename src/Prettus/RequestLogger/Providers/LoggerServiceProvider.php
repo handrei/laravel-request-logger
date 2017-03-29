@@ -35,12 +35,10 @@ class LoggerServiceProvider extends ServiceProvider
      */
     public function register()
     {        
-        Benchmarking::start('application');
-        
+
         $kernel = $this->app->make('Illuminate\Contracts\Http\Kernel');
         $kernel->prependMiddleware(\Prettus\RequestLogger\Middlewares\ResponseLoggerMiddleware::class);
 
-        Benchmarking::end('application');
     }
 
 }
