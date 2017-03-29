@@ -85,6 +85,9 @@ class RequestInterpolation extends BaseInterpolation {
                 case "date":
                     $matches[] = "clf";
                     break;
+                case "username":
+                    return $this->request->user()->username;
+                    break;
                 }
             }
 
@@ -112,7 +115,7 @@ class RequestInterpolation extends BaseInterpolation {
                 }
             }
         }
-        
+
         return $raw;
     }
 }

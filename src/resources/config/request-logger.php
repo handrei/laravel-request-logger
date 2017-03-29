@@ -24,6 +24,7 @@ return [
         'handlers'  => ['Prettus\RequestLogger\Handler\HttpLoggerHandler'],
         'file'      => storage_path("logs/http.log"),
         'level'     => 'info',
-        'format'    => 'common'
+        'format'    => 'common',
+        'monolog-format' => "[%datetime%]: %message%\n",
     ]
 ];
