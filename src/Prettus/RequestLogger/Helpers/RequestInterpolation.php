@@ -86,7 +86,7 @@ class RequestInterpolation extends BaseInterpolation {
                     $matches[] = "clf";
                     break;
                 case "username":
-                    return $this->request->user()->username;
+                    return $this->request->user() ? $this->request->user()->username : '';
                     break;
                 }
             }
