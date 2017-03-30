@@ -1,5 +1,6 @@
 <?php namespace Prettus\RequestLogger\Handler;
 
+use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\HandlerInterface;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;
@@ -15,6 +16,10 @@ class HttpLoggerHandler extends RotatingFileHandler implements HandlerInterface 
 
         $filename = !is_null($filename) ? $filename : config("request-logger.logger.file", storage_path("logs/http.log") );
         parent::__construct($filename, $maxFiles, $level, $bubble, $filePermission, $useLocking);
+
+        $this->setFormatter(new LineFormatter(config('request-logger.logger.monolog-format'), null, false, true));
+
+
     }
 
 }
