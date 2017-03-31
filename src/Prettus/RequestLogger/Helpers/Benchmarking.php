@@ -45,7 +45,7 @@ class Benchmarking
 
             $start = static::$timers[$name]['start'];
             static::$timers[$name]['end'] = $end;
-            static::$timers[$name]['duration'] = $end - $start;
+            static::$timers[$name]['duration'] = sprintf("%d", ($end - $start) * 1000);
 
             return static::$timers[$name]['duration'];
         }
